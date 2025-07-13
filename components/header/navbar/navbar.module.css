@@ -1,0 +1,96 @@
+.navbar {
+  position: relative;
+  background-color: #f3f4f6;
+  border: 1px solid black;
+  box-shadow: 0 0 6px rgb(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .navbar {
+  background-color: #252525;
+  border: 1px solid white;
+  box-shadow: 0 0 6px rgb(255, 255, 255, 0.5);
+}
+
+.navLink {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.navLink:hover {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  animation: wobble-horizontal 0.2s ease-in-out;
+}
+
+[data-theme='dark'] .navLink:hover {
+  text-shadow: 2px 0 12px rgba(255, 255, 255, 1);
+  animation: wobble-horizontal 0.2s ease-in-out;
+}
+
+.navLinkActive {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.indicator {
+  position: absolute;
+  bottom: 11px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1px 1px 0 0;
+  transition:
+    left 0.3s ease,
+    width 0.3s ease;
+  will-change: left, width;
+}
+
+[data-theme='dark'] .indicator {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.progressBarContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: black;
+  transition: width 0.2s ease-out;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+[data-theme='dark'] .progressBar {
+  background-color: white;
+}
+
+@keyframes wobble-horizontal {
+  15.45% {
+    transform: translateX(6px);
+  }
+  34.7% {
+    transform: translateX(-4px);
+  }
+  48.75% {
+    transform: translateX(4px);
+  }
+  67.2% {
+    transform: translateX(-2px);
+  }
+  84.46% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
